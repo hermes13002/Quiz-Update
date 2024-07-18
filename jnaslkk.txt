@@ -1,0 +1,613 @@
+{
+			"question":"When Samson killed 1000 Philistines at Lehi what weapon did he use?",
+			"options": [],
+            "correctAnswer":"Jawbone of an ass",
+		},
+		{
+			"question":"How old (years) was David when he was anointed King of Israel?",
+			"options": [],
+            "correctAnswer":30,
+		},
+		{
+			"question":"Aside from Peter and John, which disciple witnessed Jesus’ Transfiguration?",
+			"options": [],
+            "correctAnswer":"James",
+		},
+		{
+			"question":"In Damascus, whose sight was restored by Ananias?",
+			"options": [],
+            "correctAnswer":"Saul",
+		},
+		{
+			"question":"How many rivers were formed from the river that went out of Eden?",
+			"options": [],
+            "correctAnswer":4,
+		},
+		{
+			"question":"What is the name of the place where Jacob slept and dreamed of Jacob's Ladder?",
+			"options": [],
+            "correctAnswer":"Bethel",
+		},
+		{
+			"question":"Who told Naaman to wash in the river Jordan 7 times in order to cure his leprosy?",
+			"options": [],
+            "correctAnswer":"Elisha",
+		},
+		{
+			"question":"Who announced to Zachariah that his wife would bear a child to be named John the Baptist?",
+			"options": [],
+            "correctAnswer":"Angel Gabriel",
+		},
+		{
+			"question":"Who said, '…as for me and my house, we will serve the Lord'?",
+			"options": [],
+            "correctAnswer":"Joshua",
+		},
+		{
+			"question":"What does the name 'Emmanuel' mean?",
+			"options": [],
+            "correctAnswer":"God with us",
+		},
+		{
+			"question":"God tested Abraham by telling him to offer his only son as a burnt offering. Who was that son?",
+			"options": [],
+            "correctAnswer":"Isaac",
+		},
+		{
+			"question":"How many pieces of silver was Judas paid to betray Jesus?",
+			"options": [],
+            "correctAnswer":30,
+		},
+		{
+			"question":"Who personally baptized more people, Jesus or John the Baptist?",
+			"options": [],
+            "correctAnswer":"John the Baptist",
+		},
+		{
+			"question":"Who witnessed Elijah being taken up to Heaven?",
+			"options": [],
+            "correctAnswer":"Elisha",
+		},
+		{
+			"question":"Only 2 persons in the Bible are reported as being 'taken up to Heaven' (instead of dying). One is Elijah. Who is the other?",
+			"options": [],
+            "correctAnswer":"Enoch",
+		},
+		{
+			"question":"Only 2 persons in the Bible are reported as being 'taken up to Heaven' (instead of dying). Who are they (in chronological order)?",
+			"options": [],
+            "correctAnswer":"Enoch and Elijah",
+		},
+		{
+			"question":"Who hid Joshua’s spies from Jericho’s king?",
+			"options": [],
+            "correctAnswer":"Rahab",
+		},
+		{
+			"question":"Moses died at age 120 and was buried in a valley of Moab. Who buried him?",
+			"options": [],
+            "correctAnswer":"The Lord",
+		},
+		{
+			"question":"How many years were the Israelites in bondage in Egypt?",
+			"options": [],
+            "correctAnswer":430,
+		},
+		{
+			"question":"When they heard of the adversity that had befallen Job, how many of his friends came to comfort him?",
+			"options": [],
+            "correctAnswer":3,
+		},
+		{
+			"question":"Who is the only woman mentioned in Paul’s letter to Philemon?",
+			"options": [],
+            "correctAnswer":"Apphia",
+		},
+		{
+			"question":"What part of the day did Christ embark on the boat from which He calmed the waters?",
+			"options": [],
+            "correctAnswer":"Evening",
+		},
+		{
+			"question":"After his epiphany, how many years did Paul spend in Arabia before beginning his ministry?",
+			"options": [],
+            "correctAnswer":3,
+		},
+		{
+			"question":"How many troops did Sennacherib lose at the siege of Jerusalem?",
+			"options": [],
+            "correctAnswer":185000,
+		},
+		{
+			"question":"Who was the father of John the Baptist?",
+			"options": [],
+            "correctAnswer":"Zacharias",
+		},
+		{
+			"question":"How many demons came out of Mary called Magdalene?",
+			"options": [],
+            "correctAnswer":7,
+		},
+		{
+			"question":"When the multitude came out to be baptized, how did John the Baptist characterize them?",
+			"reference":"Luke 3:7"
+		},
+		{
+			"question":"From what tribe of Israel did the Apostle Paul come?",
+			"options": [],
+            "correctAnswer":"Benjamin",
+		},
+		{
+			"question":"Who directed Paul to preach to the Gentiles?",
+			"options": [],
+            "correctAnswer":"Jesus",
+		},
+		{
+			"question":"Who was the king of Israel when David slew Goliath?",
+			"options": [],
+            "correctAnswer":"Saul",
+		},
+		{
+			"question":"To whom did God describe Job as a perfect and upright man?",
+			"options": [],
+            "correctAnswer":"Satan",
+		},
+		{
+			"question":"Who said, “Silver and Gold have I none, but such as I have I give thee?”",
+			"options": [],
+            "correctAnswer":"Peter",
+		},
+		{
+			"question":"James, the brother of John, was the first Apostle martyred. How was he killed?",
+			"options": [],
+            "correctAnswer":"With a sword",
+		},
+		{
+			"question":"How old (in years) was Abraham when his son Isaac was born?",
+			"options": [],
+            "correctAnswer":100,
+		},
+		{
+			"question":"What was the title placed on Jesus’ cross?",
+			"options": [],
+            "correctAnswer":"King of the Jews",
+		},
+		{
+			"question":"Who took his rod and stretched out his hand upon the waters of Egypt to turn them into blood?",
+			"options": [],
+            "correctAnswer":"Aaron",
+		},
+		{
+			"question":"Where (city) were the disciples first called Christians?",
+			"options": [],
+            "correctAnswer":"Antioch",
+		},
+		{
+			"question":"When Jesus struggled with his cross, who was forced to bear it for him?",
+			"options": [],
+            "correctAnswer":"Simon from Cyrene",
+		},
+		{
+			"question":"According to the Book of Revelations, what needs to be done to receive the crown of life?",
+			"options": [],
+            "correctAnswer":"Faithful until death",
+		},
+		{
+			"question":"What body of water, other than the red sea, was parted in the Bible?",
+			"options": [],
+            "correctAnswer":"Jordan river",
+		},
+		{
+			"question":"How tall was Goliath?",
+			"options": [],
+            "correctAnswer":"6 cubits and a span",
+		},
+		{
+			"question":"What did Paul say was the fulfillment of the Law?",
+			"options": [],
+            "correctAnswer":"Love",
+		},
+		{
+			"question":"What is the shortest chapter in the Bible?",
+			"options": [],
+            "correctAnswer":"Psalm 117",
+		},
+		{
+			"question":"There are only two perfect cubes described in Scripture. What is the one described in Revelation?",
+			"options": [],
+            "correctAnswer":"New Jerusalem",
+		},
+		{
+			"question":"God parted the Red Sea so Moses and the Israelites could cross. What body of water did He part so Joshua and the Israelites could cross?",
+			"options": [],
+            "correctAnswer":"Jordan River",
+		},
+		{
+			"question":"At Christ’s crucifixion what time of day did darkness come over the whole land?",
+			"options": [],
+            "correctAnswer":"Noon",
+		},
+		{
+			"question":"At Christ’s crucifixion darkness come over the whole land. How long did it last?",
+			"options": [],
+            "correctAnswer":"3 hours",
+		},
+		{
+			"question":"How many persons were sealed as 'servants of our God on their forehead'?",
+			"options": [],
+            "correctAnswer":"144,000",
+		},
+		{
+			"question":"What is the name of the City of God?",
+			"options": [],
+            "correctAnswer":"New Jerusalem",
+		},
+		{
+			"question":"Who was the father of David?",
+			"options": [],
+            "correctAnswer":"Jesse",
+		},
+		{
+			"question":"To which king did Isaac hide his spousal relationship with Rebecca by claiming she was his sister?",
+			"options": [],
+            "correctAnswer":"Abimelech",
+		},
+		{
+			"question":"3 named women found Christ’s tomb open and empty: Mary Magdalene, Mary the mother of James, and _____?",
+			"options": [],
+            "correctAnswer":"Joanna",
+		},
+		{
+			"question":"3 named women found Christ’s tomb open and empty: Joanna, Mary the mother of James, and _____?",
+			"options": [],
+            "correctAnswer":"Mary Magdalene",
+		},
+		{
+			"question":"3 named women found Christ’s tomb open and empty: Mary Magdalene, Joanna, and _____?",
+			"options": [],
+            "correctAnswer":"Mary",
+		},
+		{
+			"question":"To which tribe of Israel did Moses belong?",
+			"options": [],
+            "correctAnswer":"Levi",
+		},
+		{
+			"question":"To what land did Moses flee after killing the Egyptian soldier?",
+			"options": [],
+            "correctAnswer":"Midian",
+		},
+		{
+			"options": [],"question":
+            "christ’s first miracle was turning water into wine. Where did this occur?",
+			"options": [],
+            "options": [],"correctAnswer":
+            "cana of Galilee",
+		},
+		{
+			"question":"Sarah was Abraham’s first wife. Who was his second?",
+			"options": [],
+            "correctAnswer":"Keturah",
+		},
+		{
+			"question":"What relic did Moses remove from Egypt at the time of the Exodus?",
+			"options": [],
+            "correctAnswer":"Bones of Joseph",
+		},
+		{
+			"question":"How old was Abraham when he was circumcised?",
+			"options": [],
+            "correctAnswer":99,
+		},
+		{
+			"question":"After Christ’s triumphal entrance into Jerusalem and after visiting the temple, where did he spend the night?",
+			"options": [],
+            "correctAnswer":"Bethany",
+		},
+		{
+			"question":"The first two disciples selected by Jesus were brothers. Name them in alphabetical order (____ and ____).",
+			"options": [],
+            "correctAnswer":"Andrew and Simon",
+		},
+		{
+			"question":"Which of the tribes of Israel was prohibited from owning land in Canaan?",
+			"options": [],
+            "correctAnswer":"Levites",
+		},
+		{
+			"question":"What city is called the City of David?",
+			"options": [],
+            "correctAnswer":"Bethlehem",
+		},
+		{
+			"question":"Who ate honey out of a lion’s carcass?",
+			"options": [],
+            "correctAnswer":"Samson",
+		},
+		{
+			"question":"What famous city did Nebuchadnezzar rule?",
+			"options": ['Nazareth','Babylon','Israel','Jericho'],
+            "correctAnswer":" Babylon",
+		},
+		{
+			"question":"Who was Israel’s first high priest?",
+			"options": [''Moses','Jethro','Moses','Joshua'],
+            "correctAnswer":"Aaron",
+		},
+		{
+			"question":"Who is the only woman whose age is mentioned in the Bible?",
+			"options": ['Keturah','Sarah','Hannah','Esther'],
+            "correctAnswer":"Sarah",
+		},
+		{
+			"question":"Which books in the Bible are named after women? (____ and ____, in order of appearance in the Bible)",
+			"options": ['Esther and Deborah','Ruth and Hannah','Ruth and Esther','Deborah and Hannah'],
+            "correctAnswer":"Ruth and Esther",
+        },
+		{
+			"question":"How many Jews were exiled to Babylon by Nebuchadnezzar?",
+			"options": ['4500','4600','4700','4800'],
+            "correctAnswer":4600,
+        },
+		{
+			"question":"When Moses was preparing the Israelites for their coming confrontation with the 7 nations of Canaan, how large an army (number) did he raise?",
+			"options": ['603550','623350','637380','68938'],
+            "correctAnswer":603550,
+		},
+		{
+			"question":"When God finally let the Israelites enter the promised land of Canaan, how many nations had to be destroyed?",
+			"options": ['6','7','8','5'],
+            "correctAnswer":7,
+		},
+		{
+			"question":"Who leapt in his mother’s womb when Mary visited?",
+			"options": ['Isaiah','Josiah','Matthew the Tax Collector','John the Baptist'],
+            "correctAnswer":"John the Baptist",
+		},
+		{
+			"question":"After the 5000 ate their fill of the 5 loaves and 2 fishes, how much food was left over?",
+			"options": ['12 baskets','13 baskets','14 baskets','10 baskets'],
+            "correctAnswer":"12 baskets",
+		},
+		{
+			"question":"On the 7th day, how many times did Joshua’s army march around Jericho before the walls fell?",
+			"options": ['5','7','9','11'],
+            "correctAnswer":7,
+		},
+		{
+			"question":"Who did God describe as 'a blameless and upright man'?",
+			"options": ['Job', 'David', 'Jacob', 'Isaac'],
+            "correctAnswer":"Job",
+		},
+		{
+			"question":"Aside from the Serpent, what other animal in the Old Testament spoke to humans?",
+			"options": ['Horse', 'Dog', 'Cow', 'Donkey'],
+            "correctAnswer":"Donkey",
+		},
+		{
+			"question":"Whose flock was Moses tending when he encountered the burning bush?",
+			"options": ['Miriam', 'Joshua', 'Jethro', 'Ahab'],
+            "correctAnswer":"Jethro",
+		},
+		{
+			"question":"Who said, 'Silver and gold have I none; but such as I have I give thee'?",
+			"options": ['Peter', 'Andrew', 'Matthew', 'Silas'],
+            "correctAnswer":"Peter",
+		},
+		{
+			"question":"How long was Jonah in the belly of the great fish?",
+			"options": ['3 days and 4 nights', '2 days and 3 nights', '3 days and 3 nights', '5 days and 5 nights'],
+            "correctAnswer":"3 days and 3 nights",
+		},
+		
+
+
+
+
+
+
+
+
+
+
+
+
+  final List<Map<String, dynamic>> _questions = [
+    {
+      'section': 'General Knowledge',
+      'questions': [
+        {
+          'question': 'What is the capital of France?',
+          'options': ['Berlin', 'Madrid', 'Paris', 'Rome'],
+          'correctAnswer': 'Paris',
+        },
+        // Add more questions for this section
+      ],
+    },
+    {
+      'section': 'Programming',
+      'questions': [
+        {
+          'question': 'What does API stand for?',
+          'options': [
+            'Application Programming Interface',
+            'Advanced Programming Interface',
+            'Automated Programming Interface',
+            'Alliance Programming Interface',
+          ],
+          'correctAnswer': 'Application Programming Interface',
+        },
+      ]
+    },
+    {
+      'section': 'Bible',
+      'questions': [
+        {
+          {
+            "question": "What famous city did Nebuchadnezzar rule?",
+            "options": ['Nazareth', 'Babylon', 'Israel', 'Jericho'],
+            "correctAnswer": "Babylon",
+          },
+          {
+            "question": "Who was Israel’s first high priest?",
+            "options": ['Moses', 'Jethro', 'Aaron', 'Joshua'],
+            "correctAnswer": "Aaron",
+          },
+          {
+            "question":
+                "Who is the only woman whose age is mentioned in the Bible?",
+            "options": ['Keturah', 'Sarah', 'Hannah', 'Esther'],
+            "correctAnswer": "Sarah",
+          },
+          {
+            "question":
+                "Which books in the Bible are named after women? (____ and ____, in order of appearance in the Bible)",
+            "options": [
+              'Esther and Deborah',
+              'Ruth and Hannah',
+              'Ruth and Esther',
+              'Deborah and Hannah'
+            ],
+            "correctAnswer": "Ruth and Esther",
+          },
+          {
+            "question":
+                "How many Jews were exiled to Babylon by Nebuchadnezzar?",
+            "options": ['4500', '4600', '4700', '4800'],
+            "correctAnswer": '4600',
+          },
+          {
+            "question":
+                "When Moses was preparing the Israelites for their coming confrontation with the 7 nations of Canaan, how large an army (number) did he raise?",
+            "options": ['603550', '623350', '637380', '68938'],
+            "correctAnswer": '603550',
+          },
+          {
+            "question":
+                "When God finally let the Israelites enter the promised land of Canaan, how many nations had to be destroyed?",
+            "options": ['6', '7', '8', '5'],
+            "correctAnswer": '7',
+          },
+          {
+            "question": "Who leapt in his mother’s womb when Mary visited?",
+            "options": [
+              'Isaiah',
+              'Josiah',
+              'Matthew the Tax Collector',
+              'John the Baptist'
+            ],
+            "correctAnswer": "John the Baptist",
+          },
+          {
+            "question":
+                "After the 5000 ate their fill of the 5 loaves and 2 fishes, how much food was left over?",
+            "options": ['12 baskets', '13 baskets', '14 baskets', '10 baskets'],
+            "correctAnswer": "12 baskets",
+          },
+          {
+            "question":
+                "On the 7th day, how many times did Joshua’s army march around Jericho before the walls fell?",
+            "options": ['5', '7', '9', '11'],
+            "correctAnswer": '7',
+          },
+          {
+            "question":
+                "Who did God describe as 'a blameless and upright man'?",
+            "options": ['Job', 'David', 'Jacob', 'Isaac'],
+            "correctAnswer": "Job",
+          },
+          {
+            "question":
+                "Aside from the Serpent, what other animal in the Old Testament spoke to humans?",
+            "options": ['Horse', 'Dog', 'Cow', 'Donkey'],
+            "correctAnswer": "Donkey",
+          },
+          {
+            "question":
+                "Whose flock was Moses tending when he encountered the burning bush?",
+            "options": ['Miriam', 'Joshua', 'Jethro', 'Ahab'],
+            "correctAnswer": "Jethro",
+          },
+          {
+            "question":
+                "Who said, 'Silver and gold have I none; but such as I have I give thee'?",
+            "options": ['Peter', 'Andrew', 'Matthew', 'Silas'],
+            "correctAnswer": "Peter",
+          },
+          {
+            "question": "How long was Jonah in the belly of the great fish?",
+            "options": [
+              '3 days and 4 nights',
+              '2 days and 3 nights',
+              '3 days and 3 nights',
+              '5 days and 5 nights'
+            ],
+            "correctAnswer": "3 days and 3 nights",
+          },
+        }
+      ]
+    },
+  ]..shuffle();class ReadyScreen extends StatefulWidget {
+  const ReadyScreen({super.key});
+
+  @override
+  _ReadyScreenState createState() => _ReadyScreenState();
+}
+
+class _ReadyScreenState extends State<ReadyScreen> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Timer(
+  //       const Duration(seconds: 3),
+  //       () => Navigator.pushReplacement(context,
+  //           MaterialPageRoute(builder: (context) => const QuizScreen())));
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Colors.black12,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 80,
+            ),
+            Image.asset(
+              'assets/splash.png',
+              height: 300,
+              width: 300,
+            ),
+            const SizedBox(
+              height: 35,
+            ),
+            Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20), color: Colors.white),
+              child: Column(
+                children: [
+                  const Text(
+                    'Are You Ready?',
+                    style: TextStyle(
+                        color: Colors.lightBlue,
+                        fontFamily: 'Poppins',
+                        fontSize: 35),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                      onPressed: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const QuizScreen())),
+                      child: const Text("Let's Go"))
+                ],
+              ),
+            )
+          ],
+        ));
+  }
+}
