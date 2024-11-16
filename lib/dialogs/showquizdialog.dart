@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quiz/section.dart';
 
-class ShowQuizDialog extends StatelessWidget {
-  const ShowQuizDialog({super.key});
+class ShowQuizdialog extends StatelessWidget {
+  final int score;
+  final int scorePercent;
+  final int failed;
+  final void Function()? onPressed;
+  const ShowQuizdialog({super.key, required this.score, required this.scorePercent, required this.failed, this.onPressed});
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +26,10 @@ class ShowQuizDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Image.asset(
-                'assets/champ.png',
-                height: 200,
-                width: 200,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              Image.asset('assets/champ.png', height: 200, width: 200,),
+              
+              const SizedBox(height: 10,),
+
               Container(
                 height: 200,
                 width: 250,
@@ -45,79 +45,54 @@ class ShowQuizDialog extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Text(
-                              '$scorePercent%',
-                              style: const TextStyle(
-                                  color: Colors.purpleAccent,
-                                  fontSize: 25,
-                                  fontFamily: 'Poppins-bold'),
-                            ),
+                            Text('$scorePercent%', style: const TextStyle(color: Colors.purpleAccent, fontSize: 25, fontFamily: 'Poppins-bold'),),
+                            
                             const SizedBox(
                               height: 5,
                             ),
-                            const Text(
-                              'Score Percentage',
-                              style: TextStyle(fontFamily: 'Rowdies'),
-                            ),
+                            
+                            const Text('Score Percentage',style: TextStyle(fontFamily: 'Rowdies'),),
                           ],
                         ),
+
                         const Column(
                           children: [
-                            Text(
-                              '15',
-                              style: TextStyle(
-                                  color: Colors.lightGreen,
-                                  fontSize: 25,
-                                  fontFamily: 'Poppins-bold'),
-                            ),
+                            Text('15', style: TextStyle(color: Colors.lightGreen, fontSize: 25, )),
+                            
                             SizedBox(
                               height: 5,
                             ),
-                            Text(
-                              'Total Questions',
-                              style: TextStyle(fontFamily: 'Rowdies'),
-                            ),
+                            
+                            Text('Total Questions', style: TextStyle(fontFamily: 'Rowdies'),),
                           ],
                         ),
                       ],
                     ),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: [
-                            Text(
-                              '$_score',
-                              style: const TextStyle(
-                                  color: Colors.lightBlueAccent,
-                                  fontSize: 25,
-                                  fontFamily: 'Poppins-bold'),
-                            ),
+                            Text('$score', style: const TextStyle(color: Colors.lightBlueAccent, fontSize: 25, fontFamily: 'Poppins-bold'),),
+                            
                             const SizedBox(
                               height: 5,
                             ),
-                            const Text(
-                              'Correct',
-                              style: TextStyle(fontFamily: 'Rowdies'),
-                            ),
+                            
+                            const Text('Correct', style: TextStyle(fontFamily: 'Rowdies'),),
                           ],
                         ),
+
                         Column(
                           children: [
-                            Text(
-                              '$failed',
-                              style: const TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 25,
-                                  fontFamily: 'Poppins-bold'),
-                            ),
+                            Text('$failed', style: const TextStyle(color: Colors.red, fontSize: 25, fontFamily: 'Poppins-bold'),),
+                            
                             const SizedBox(
                               height: 5,
                             ),
-                            const Text(
-                              'Wrong',
-                              style: TextStyle(fontFamily: 'Rowdies'),
-                            ),
+                            
+                            const Text('Wrong',style: TextStyle(fontFamily: 'Rowdies'),),
                           ],
                         ),
                       ],
@@ -125,18 +100,14 @@ class ShowQuizDialog extends StatelessWidget {
                   ],
                 ),
               ),
+
               const SizedBox(
                 height: 10,
               ),
+              
               ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  resetButton();
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SectionScreen()));
-                },
+                onPressed: onPressed,
+
                 style: ElevatedButton.styleFrom(
                   elevation: 3.0,
                   minimumSize: const Size(170, 45),
@@ -148,7 +119,7 @@ class ShowQuizDialog extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                       // side: const BorderSide(width: 3, color: Colors.blue)
                     )
-                  ),
+                ),
                 child: const Text(
                   "Play Again",
                   style: TextStyle(color: Colors.white),

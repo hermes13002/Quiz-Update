@@ -75,7 +75,7 @@ class _SecondScreenState extends State<SecondScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 20,
                     ),
                     Icon(Icons.arrow_right_rounded, size: 40,)
                   ],

@@ -13,7 +13,6 @@ class MyQuizApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Excelsior Quiz App",
-      // theme: ThemeData.dark(),
       home: const SplashScreen(),
       builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
