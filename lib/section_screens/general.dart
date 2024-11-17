@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/model/general_question_model.dart';
+import 'package:quiz/data/general_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
+import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
 import '../section.dart';
@@ -21,11 +22,20 @@ class _GeneralScreenState extends State<GeneralScreen> {
   int _score = 0;
   int totalQuestions = 0;
   int maxAnswered = 15;
+  bool isButtonPressed = false;
+  List<bool> _isCorrectAnswer = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _isCorrectAnswer = List<bool>.filled(15, false);
+  }
 
   void resetButton() {
     setState(() {
       _currentIndex = 0;
       _score = 0;
+      _isCorrectAnswer = List<bool>.filled(15, false);
     });
   }
 
@@ -35,21 +45,26 @@ class _GeneralScreenState extends State<GeneralScreen> {
 
       if (selectedAnswer == generalQuestions[_currentIndex]['correctAnswer']) {
         _score++;
-      }
-
-      if (totalQuestions >= maxAnswered) {
-        showQuizDialog();
+        _isCorrectAnswer[_currentIndex] = true;
       } else {
-        if (_currentIndex < generalQuestions.length - 1) {
-          _currentIndex++;
-        } else {
-          // Quiz completed, show result or navigate to a new screen
-          showQuizDialog();
-        }
+        _isCorrectAnswer[_currentIndex] = false;
       }
     });
-  }
 
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        if (totalQuestions >= maxAnswered) {
+          showQuizDialog();
+        } else {
+          if (_currentIndex < generalQuestions.length - 1) {
+            _currentIndex++;
+          } else {
+            showQuizDialog();
+          }
+        }
+      });
+    });
+  }
   
  
   @override
@@ -62,16 +77,38 @@ class _GeneralScreenState extends State<GeneralScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            QuestionWidget(questionText: generalQuestions[_currentIndex]['question'],),
+            ProgressIndicatorWidget(currentIndex: _currentIndex),
+
+            AnimatedSwitcher(
+              switchOutCurve: Curves.easeOut,
+              switchInCurve: Curves.easeIn,
+              duration: const Duration(milliseconds: 1000),
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              child: QuestionWidget(
+                key: ValueKey<int>(_currentIndex),
+                questionText: generalQuestions[_currentIndex]['question']
+              ),
+            ),
 
             SizedBox(
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: (generalQuestions[_currentIndex]['options'] as List<String>).map((option) {
-                  return OptionWidget(
-                    onPressed: () {_answerQuestion(option);}, 
-                    optionText: option,  
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 1000),
+                    transitionBuilder: (Widget child, Animation<double> animation) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                    child: OptionWidget(
+                      key: ValueKey<int>(_currentIndex),
+                      onPressed: () {_answerQuestion(option);},
+                      optionText: option,
+                      borderside: _isCorrectAnswer[_currentIndex] && option == generalQuestions[_currentIndex]['correctAnswer']
+                      ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
+                    ),
                   );
                 }).toList(),
               ),
@@ -116,5 +153,3 @@ class _GeneralScreenState extends State<GeneralScreen> {
   }
 
 }
-
-

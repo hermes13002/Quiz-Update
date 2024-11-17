@@ -41,6 +41,7 @@ dependencies:
   gap: ^3.0.1
   flutter_screenutil: ^5.9.0
   confetti: ^0.8.0
+  flutter_confetti: ^0.3.4
   
 
 dev_dependencies:

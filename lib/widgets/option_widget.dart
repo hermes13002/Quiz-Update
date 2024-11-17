@@ -5,7 +5,8 @@ import 'package:quiz/utils/ui_helpers.dart';
 class OptionWidget extends StatelessWidget {
   final void Function()? onPressed;
   final String optionText;
-  const OptionWidget({super.key, this.onPressed, required this.optionText});
+  final BorderSide borderside;
+  const OptionWidget({super.key, this.onPressed, required this.optionText, required this.borderside});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class OptionWidget extends StatelessWidget {
           foregroundColor: Colors.lightBlueAccent,
           textStyle: TextStyle(fontSize: 13.5.sp, fontWeight: FontWeight.w600, fontFamily: 'Poppins-Bold'),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12),
-            // side: const BorderSide(width: 3, color: Colors.blue)
+          side: borderside
           )
         ),
         child: Text(optionText),

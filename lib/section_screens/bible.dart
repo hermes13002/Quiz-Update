@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/model/bible_question_model.dart';
+import 'package:quiz/data/bible_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
+import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
 import '../section.dart';
@@ -20,11 +21,20 @@ class _BibleScreenState extends State<BibleScreen> {
   int _score = 0;
   int totalQuestions = 0;
   int maxAnswered = 15;
+  bool isButtonPressed = false;
+  List<bool> _isCorrectAnswer = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _isCorrectAnswer = List<bool>.filled(15, false);
+  }
 
   void resetButton() {
     setState(() {
       _currentIndex = 0;
       _score = 0;
+      _isCorrectAnswer = List<bool>.filled(15, false);
     });
   }
 
@@ -34,43 +44,70 @@ class _BibleScreenState extends State<BibleScreen> {
 
       if (selectedAnswer == bibleQuestions[_currentIndex]['correctAnswer']) {
         _score++;
-      }
-
-      if (totalQuestions >= maxAnswered) {
-        showQuizDialog();
+        _isCorrectAnswer[_currentIndex] = true;
       } else {
-        if (_currentIndex < bibleQuestions.length - 1) {
-          _currentIndex++;
-        } else {
-          // Quiz completed, show result or navigate to a new screen
-          showQuizDialog();
-        }
+        _isCorrectAnswer[_currentIndex] = false;
       }
+    });
+
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        if (totalQuestions >= maxAnswered) {
+          showQuizDialog();
+        } else {
+          if (_currentIndex < bibleQuestions.length - 1) {
+            _currentIndex++;
+          } else {
+            showQuizDialog();
+          }
+        }
+      });
     });
   }
 
-  
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(sectionTitle: 'Bible'),
+      appBar: const AppBarWidget(sectionTitle: 'Programming'),
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            QuestionWidget(questionText: bibleQuestions[_currentIndex]['question'],),
+            ProgressIndicatorWidget(currentIndex: _currentIndex),
+
+            AnimatedSwitcher(
+              switchOutCurve: Curves.easeOut,
+              switchInCurve: Curves.easeIn,
+              duration: const Duration(milliseconds: 1000),
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                return FadeTransition(opacity: animation, child: child);
+              },
+              child: QuestionWidget(
+                key: ValueKey<int>(_currentIndex),
+                questionText: bibleQuestions[_currentIndex]['question']
+              ),
+            ),
 
             SizedBox(
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: (bibleQuestions[_currentIndex]['options'] as List<String>).map((option) {
-                  return OptionWidget(
-                    onPressed: () {_answerQuestion(option);}, 
-                    optionText: option,  
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 1000),
+                    transitionBuilder: (Widget child, Animation<double> animation) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                    child: OptionWidget(
+                      key: ValueKey<int>(_currentIndex),
+                      onPressed: () {_answerQuestion(option);},
+                      optionText: option,
+                      borderside: _isCorrectAnswer[_currentIndex] && option == bibleQuestions[_currentIndex]['correctAnswer']
+                      ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
+                    ),
                   );
                 }).toList(),
               ),

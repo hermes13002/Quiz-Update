@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:quiz/section_screens/bible.dart';
 import 'package:quiz/section_screens/general.dart';
 import 'package:quiz/section_screens/programming.dart';
@@ -8,212 +10,83 @@ class SectionScreen extends StatefulWidget {
   const SectionScreen({super.key});
 
   @override
-  _SectionScreenState createState() => _SectionScreenState();
+  State<SectionScreen> createState() => _SectionScreenState();
 }
 
 class _SectionScreenState extends State<SectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Container(
-              color: Colors.lightBlueAccent,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 7,
-          ),
-          const Text(
-            'Category',
-            style: TextStyle(
-              fontSize: 27,
-              fontFamily: 'Poppins-Bold',
-              // color: Colors.white,
+      body: Container(
+        padding: const EdgeInsets.only(left: 16, right: 16),
+        color: const Color.fromARGB(255, 39, 39, 39),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: [
+            const Gap(55),
+            Text('Category', style: TextStyle(fontSize: 27.sp, fontFamily: 'Poppins-Bold', color: Colors.white,),),
+
+            const Gap(25),
+            Text('Choose Your Preferred Quiz', style: TextStyle(fontSize: 20.sp, fontFamily: 'Poppins',fontWeight: FontWeight.w100, color: Colors.white),),
+            
+            const Gap(5),
+            GridView(
+              shrinkWrap: true, physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 1.5,
               ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          const Text(
-            'Choose Your Preferred Quiz',
-            style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w100),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const GeneralScreen()));
-            },
-            child: const SizedBox(
-              height: 100,
-              width: 200,
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Icon(Icons.public),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'General Knowledge',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 17,
-                          fontFamily: 'Poppins-Bold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              children: [
+                sectionTypeContainer(() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const GeneralScreen()));
+                }, Icons.public, 'General Knowledge'),
+
+                sectionTypeContainer(() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const ProgrammingScreen()));
+                }, Icons.laptop_chromebook, 'Programming'),
+
+                sectionTypeContainer(() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const BibleScreen()));
+                }, Icons.menu_book, 'Bible'),
+
+                sectionTypeContainer(() {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FootballScreen()));
+                }, Icons.sports_soccer, 'Football'),
+
+                for (int i = 0; i < 4; i++)
+                sectionTypeContainer(() {}, Icons.quiz_outlined, 'Coming soon'),
+              ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProgrammingScreen()));
-            },
-            child: Container(
-              height: 100,
-              width: 200,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(30)),
-              child: const Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Icon(Icons.laptop_chromebook),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Programming',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 19,
-                          fontFamily: 'Poppins-Bold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const BibleScreen()));
-            },
-            child: Container(
-              height: 100,
-              width: 200,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: const Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Icon(Icons.menu_book),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Bible',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 20,
-                          fontFamily: 'Poppins-Bold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const FootballScreen()));
-            },
-            child: Container(
-              height: 100,
-              width: 200,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: const Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Icon(Icons.sports_soccer),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Football',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 20,
-                          fontFamily: 'Poppins-Bold',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          )
         ],
       ),
-    )));
+    ));
+  }
+
+
+  Widget sectionTypeContainer(void Function() onTap, IconData icon, String text) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 0,
+        color: const Color.fromARGB(255, 49, 49, 49),
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+              children: [
+                Icon(icon, color: Colors.lightBlueAccent,),
+                
+                Text(text, textAlign: TextAlign.center, style: TextStyle(color: Colors.lightBlueAccent, fontSize: 15.sp, fontFamily: 'Poppins-Bold',),),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
