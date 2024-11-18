@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/data/general_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
@@ -8,7 +7,7 @@ import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
 import '../category_screen.dart';
-
+import '../../data/general_question_data.dart';
 
 class GeneralScreen extends StatefulWidget {
   const GeneralScreen({super.key});
@@ -22,32 +21,32 @@ class _GeneralScreenState extends State<GeneralScreen> {
   int _score = 0;
   int totalQuestions = 0;
   int maxAnswered = 15;
-  bool isButtonPressed = false;
-  List<bool> _isCorrectAnswer = [];
+  bool hasAnswered = false; // New variable to track answer selection
+  String? _lastSelected;
 
   @override
   void initState() {
     super.initState();
-    _isCorrectAnswer = List<bool>.filled(15, false);
+    hasAnswered = false;
   }
 
   void resetButton() {
     setState(() {
       _currentIndex = 0;
       _score = 0;
-      _isCorrectAnswer = List<bool>.filled(15, false);
+      hasAnswered = false;
+      _lastSelected = null;
     });
   }
 
   void _answerQuestion(String selectedAnswer) {
     setState(() {
+      _lastSelected = selectedAnswer;
+      hasAnswered = true; // Mark that an answer has been selected
       totalQuestions++;
 
       if (selectedAnswer == generalQuestions[_currentIndex]['correctAnswer']) {
         _score++;
-        _isCorrectAnswer[_currentIndex] = true;
-      } else {
-        _isCorrectAnswer[_currentIndex] = false;
       }
     });
 
@@ -58,6 +57,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
         } else {
           if (_currentIndex < generalQuestions.length - 1) {
             _currentIndex++;
+            hasAnswered = false; // Reset for the next question
           } else {
             showQuizDialog();
           }
@@ -65,8 +65,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
       });
     });
   }
-  
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +87,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: generalQuestions[_currentIndex]['question']
+                questionText: generalQuestions[_currentIndex]['question'],
               ),
             ),
 
@@ -103,22 +102,31 @@ class _GeneralScreenState extends State<GeneralScreen> {
                       return FadeTransition(opacity: animation, child: child);
                     },
                     child: OptionWidget(
-                      key: ValueKey<int>(_currentIndex),
-                      onPressed: () {_answerQuestion(option);},
+                      key: ValueKey<String>(option),
+                      onPressed: hasAnswered
+                          // ? null // Disable button after an answer is selected
+                          ? (){}
+                          : () {
+                              _answerQuestion(option);
+                            },
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == generalQuestions[_currentIndex]['correctAnswer']
-                      ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
+                      borderside: hasAnswered
+                          ? (option == generalQuestions[_currentIndex]['correctAnswer'])
+                              ? const BorderSide(width: 5, color: Colors.green)
+                              : (option == _lastSelected && option != generalQuestions[_currentIndex]['correctAnswer'])
+                                  ? const BorderSide(width: 5, color: Colors.red)
+                                  : const BorderSide()
+                          : const BorderSide(),
                     ),
                   );
                 }).toList(),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
-
 
   Future<Object?> showQuizDialog() {
     return showGeneralDialog(
@@ -148,8 +156,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SectionScreen()));
           },
         );
-      }
+      },
     );
   }
-
 }

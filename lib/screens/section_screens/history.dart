@@ -7,16 +7,16 @@ import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
 import '../category_screen.dart';
-import '../../data/bible_question_data.dart';
+import '../../data/history_question_data.dart';
 
-class BibleScreen extends StatefulWidget {
-  const BibleScreen({super.key});
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({super.key});
 
   @override
-  State<BibleScreen> createState() => _BibleScreenState();
+  State<HistoryScreen> createState() => _HistoryScreenState();
 }
 
-class _BibleScreenState extends State<BibleScreen> {
+class _HistoryScreenState extends State<HistoryScreen> {
   int _currentIndex = 0;
   int _score = 0;
   int totalQuestions = 0;
@@ -45,7 +45,7 @@ class _BibleScreenState extends State<BibleScreen> {
       hasAnswered = true; // Mark that an answer has been selected
       totalQuestions++;
 
-      if (selectedAnswer == bibleQuestions[_currentIndex]['correctAnswer']) {
+      if (selectedAnswer == historyQuestions[_currentIndex]['correctAnswer']) {
         _score++;
       }
     });
@@ -55,7 +55,7 @@ class _BibleScreenState extends State<BibleScreen> {
         if (totalQuestions >= maxAnswered) {
           showQuizDialog();
         } else {
-          if (_currentIndex < bibleQuestions.length - 1) {
+          if (_currentIndex < historyQuestions.length - 1) {
             _currentIndex++;
             hasAnswered = false; // Reset for the next question
           } else {
@@ -69,7 +69,7 @@ class _BibleScreenState extends State<BibleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(sectionTitle: 'Bible'),
+      appBar: const AppBarWidget(sectionTitle: 'History'),
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -87,7 +87,7 @@ class _BibleScreenState extends State<BibleScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: bibleQuestions[_currentIndex]['question'],
+                questionText: historyQuestions[_currentIndex]['question'],
               ),
             ),
 
@@ -95,7 +95,7 @@ class _BibleScreenState extends State<BibleScreen> {
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: (bibleQuestions[_currentIndex]['options'] as List<String>).map((option) {
+                children: (historyQuestions[_currentIndex]['options'] as List<String>).map((option) {
                   return AnimatedSwitcher(
                     duration: const Duration(milliseconds: 1000),
                     transitionBuilder: (Widget child, Animation<double> animation) {
@@ -111,9 +111,9 @@ class _BibleScreenState extends State<BibleScreen> {
                             },
                       optionText: option,
                       borderside: hasAnswered
-                          ? (option == bibleQuestions[_currentIndex]['correctAnswer'])
+                          ? (option == historyQuestions[_currentIndex]['correctAnswer'])
                               ? const BorderSide(width: 5, color: Colors.green)
-                              : (option == _lastSelected && option != bibleQuestions[_currentIndex]['correctAnswer'])
+                              : (option == _lastSelected && option != historyQuestions[_currentIndex]['correctAnswer'])
                                   ? const BorderSide(width: 5, color: Colors.red)
                                   : const BorderSide()
                           : const BorderSide(),

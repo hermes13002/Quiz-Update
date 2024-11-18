@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:quiz/screens/loading_screen.dart';
 import 'package:quiz/screens/section_screens/bible.dart';
 import 'package:quiz/screens/section_screens/general.dart';
+import 'package:quiz/screens/section_screens/history.dart';
 import 'package:quiz/screens/section_screens/programming.dart';
 import 'section_screens/football.dart';
 
@@ -43,24 +44,18 @@ class _SectionScreenState extends State<SectionScreen> {
                   childAspectRatio: 1.5,
                 ),
                 children: [
-                  sectionTypeContainer(() {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoadingScreen(quizScreen: GeneralScreen(),)));
-                  }, Icons.public, 'General Knowledge'),
+                  sectionTypeContainer(const GeneralScreen(), Icons.public, 'General Knowledge'),
           
-                  sectionTypeContainer(() {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoadingScreen(quizScreen: ProgrammingScreen(),)));
-                  }, Icons.laptop_chromebook, 'Programming'),
+                  sectionTypeContainer(const ProgrammingScreen(), Icons.laptop_chromebook, 'Programming'),
           
-                  sectionTypeContainer(() {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoadingScreen(quizScreen: BibleScreen(),)));
-                  }, Icons.menu_book, 'Bible'),
+                  sectionTypeContainer(const BibleScreen(), Icons.menu_book, 'Bible'),
           
-                  sectionTypeContainer(() {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoadingScreen(quizScreen: FootballScreen(),)));
-                  }, Icons.sports_soccer, 'Football'),
+                  sectionTypeContainer(const FootballScreen(), Icons.sports_soccer, 'Football'),
+
+                  sectionTypeContainer(const HistoryScreen(), Icons.history_edu, 'History'),
           
-                  for (int i = 0; i < 8; i++)
-                  sectionTypeContainer(() {}, Icons.quiz_outlined, 'Coming soon'),
+                  for (int i = 0; i < 7; i++)
+                  sectionTypeContainer(const SizedBox(), Icons.quiz_outlined, 'Coming soon'),
                 ],
               ),
               const Gap(10),
@@ -71,9 +66,11 @@ class _SectionScreenState extends State<SectionScreen> {
   }
 
 
-  Widget sectionTypeContainer(void Function() onTap, IconData icon, String text) {
+  Widget sectionTypeContainer(Widget screenName, IconData icon, String text) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoadingScreen(quizScreen: screenName,)));
+      },
       child: Card(
         elevation: 0,
         color: const Color.fromARGB(255, 49, 49, 49),

@@ -1,8 +1,5 @@
-// ignore_for_file: body_might_complete_normally_nullable, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/data/football_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
@@ -10,12 +7,13 @@ import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
 import '../category_screen.dart';
+import '../../data/football_question_data.dart';
 
 class FootballScreen extends StatefulWidget {
   const FootballScreen({super.key});
 
   @override
-  State<FootballScreen> createState() {return _FootballScreenState();}
+  State<FootballScreen> createState() => _FootballScreenState();
 }
 
 class _FootballScreenState extends State<FootballScreen> {
@@ -23,32 +21,32 @@ class _FootballScreenState extends State<FootballScreen> {
   int _score = 0;
   int totalQuestions = 0;
   int maxAnswered = 15;
-  bool isButtonPressed = false;
-  List<bool> _isCorrectAnswer = [];
+  bool hasAnswered = false; // New variable to track answer selection
+  String? _lastSelected;
 
   @override
   void initState() {
     super.initState();
-    _isCorrectAnswer = List<bool>.filled(15, false);
+    hasAnswered = false;
   }
 
   void resetButton() {
     setState(() {
       _currentIndex = 0;
       _score = 0;
-      _isCorrectAnswer = List<bool>.filled(15, false);
+      hasAnswered = false;
+      _lastSelected = null;
     });
   }
 
   void _answerQuestion(String selectedAnswer) {
     setState(() {
+      _lastSelected = selectedAnswer;
+      hasAnswered = true; // Mark that an answer has been selected
       totalQuestions++;
 
       if (selectedAnswer == footballQuestions[_currentIndex]['correctAnswer']) {
         _score++;
-        _isCorrectAnswer[_currentIndex] = true;
-      } else {
-        _isCorrectAnswer[_currentIndex] = false;
       }
     });
 
@@ -59,6 +57,7 @@ class _FootballScreenState extends State<FootballScreen> {
         } else {
           if (_currentIndex < footballQuestions.length - 1) {
             _currentIndex++;
+            hasAnswered = false; // Reset for the next question
           } else {
             showQuizDialog();
           }
@@ -67,11 +66,10 @@ class _FootballScreenState extends State<FootballScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(sectionTitle: 'Programming'),
+      appBar: const AppBarWidget(sectionTitle: 'Football'),
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -89,7 +87,7 @@ class _FootballScreenState extends State<FootballScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: footballQuestions[_currentIndex]['question']
+                questionText: footballQuestions[_currentIndex]['question'],
               ),
             ),
 
@@ -104,16 +102,26 @@ class _FootballScreenState extends State<FootballScreen> {
                       return FadeTransition(opacity: animation, child: child);
                     },
                     child: OptionWidget(
-                      key: ValueKey<int>(_currentIndex),
-                      onPressed: () {_answerQuestion(option);},
+                      key: ValueKey<String>(option),
+                      onPressed: hasAnswered
+                          // ? null // Disable button after an answer is selected
+                          ? (){}
+                          : () {
+                              _answerQuestion(option);
+                            },
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == footballQuestions[_currentIndex]['correctAnswer']
-                      ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
+                      borderside: hasAnswered
+                          ? (option == footballQuestions[_currentIndex]['correctAnswer'])
+                              ? const BorderSide(width: 5, color: Colors.green)
+                              : (option == _lastSelected && option != footballQuestions[_currentIndex]['correctAnswer'])
+                                  ? const BorderSide(width: 5, color: Colors.red)
+                                  : const BorderSide()
+                          : const BorderSide(),
                     ),
                   );
                 }).toList(),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -148,8 +156,7 @@ class _FootballScreenState extends State<FootballScreen> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SectionScreen()));
           },
         );
-      }
+      },
     );
   }
-
 }
