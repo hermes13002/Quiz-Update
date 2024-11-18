@@ -128,170 +128,170 @@ final List<Map<String, dynamic>> generalQuestions = [
   {
     "question": "What is the capital city of France?",
     "options": ["Berlin", "Madrid", "Paris", "Rome"],
-    "correct": "Paris"
+    "correctAnswer": "Paris"
   },
   {
     "question": "Which planet is known as the 'Red Planet'?",
     "options": ["Earth", "Mars", "Venus", "Jupiter"],
-    "correct": "Mars"
+    "correctAnswer": "Mars"
   },
   {
     "question": "What is the largest ocean on Earth?",
     "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-    "correct": "Pacific Ocean"
+    "correctAnswer": "Pacific Ocean"
   },
   {
     "question": "In which year did the Titanic sink on its maiden voyage?",
     "options": ["1912", "1907", "1923", "1918"],
-    "correct": "1912"
+    "correctAnswer": "1912"
   },
   {
     "question": "Who wrote the play 'Romeo and Juliet'?",
     "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    "correct": "William Shakespeare"
+    "correctAnswer": "William Shakespeare"
   },
   {
     "question": "What is the currency of Japan?",
     "options": ["Yuan", "Euro", "Yen", "Dollar"],
-    "correct": "Yen"
+    "correctAnswer": "Yen"
   },
   {
     "question": "What is the largest mammal in the world?",
     "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-    "correct": "Blue Whale"
+    "correctAnswer": "Blue Whale"
   },
   {
     "question": "Which famous scientist developed the theory of general relativity?",
     "options": ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
-    "correct": "Albert Einstein"
+    "correctAnswer": "Albert Einstein"
   },
   {
     "question": "What is the longest river in the world?",
     "options": ["Nile", "Amazon", "Yangtze", "Mississippi"],
-    "correct": "Amazon"
+    "correctAnswer": "Amazon"
   },
   {
     "question": "Which country is known as the 'Land of the Rising Sun'?",
     "options": ["China", "Japan", "South Korea", "Vietnam"],
-    "correct": "Japan"
+    "correctAnswer": "Japan"
   },
   // Add more general knowledge questions as needed...
   {
     "question": "What is the capital city of Australia?",
     "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
-    "correct": "Canberra"
+    "correctAnswer": "Canberra"
   },
   {
     "question": "Which mountain is the highest in the world?",
     "options": ["Mount Kilimanjaro", "Mount McKinley", "Mount Everest", "Mount Fuji"],
-    "correct": "Mount Everest"
+    "correctAnswer": "Mount Everest"
   },
   {
     "question": "What is the largest desert in the world?",
     "options": ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctica"],
-    "correct": "Antarctica"
+    "correctAnswer": "Antarctica"
   },
   {
     "question": "Who is the author of 'To Kill a Mockingbird'?",
     "options": ["J.K. Rowling", "Harper Lee", "George Orwell", "Ernest Hemingway"],
-    "correct": "Harper Lee"
+    "correctAnswer": "Harper Lee"
   },
   {
     "question": "In which year did the United States declare its independence?",
     "options": ["1776", "1789", "1801", "1812"],
-    "correct": "1776"
+    "correctAnswer": "1776"
   },
   {
     "question": "What is the largest continent on Earth?",
     "options": ["Africa", "Asia", "North America", "South America"],
-    "correct": "Asia"
+    "correctAnswer": "Asia"
   },
   {
     "question": "Which famous scientist developed the laws of motion and universal gravitation?",
     "options": ["Galileo Galilei", "Isaac Newton", "Nikola Tesla", "Marie Curie"],
-    "correct": "Isaac Newton"
+    "correctAnswer": "Isaac Newton"
   },
   {
     "question": "What is the currency of South Africa?",
     "options": ["Rand", "Peso", "Baht", "Euro"],
-    "correct": "Rand"
+    "correctAnswer": "Rand"
   },
   {
     "question": "Which ocean is the smallest in the world?",
     "options": ["Indian Ocean", "Arctic Ocean", "Atlantic Ocean", "Southern Ocean"],
-    "correct": "Arctic Ocean"
+    "correctAnswer": "Arctic Ocean"
   },
   {
     "question": "Who painted the Mona Lisa?",
     "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
-    "correct": "Leonardo da Vinci"
+    "correctAnswer": "Leonardo da Vinci"
   },
   {
     "question": "What is the capital city of Brazil?",
     "options": ["Sao Paulo", "Rio de Janeiro", "Brasilia", "Buenos Aires"],
-    "correct": "Brasilia"
+    "correctAnswer": "Brasilia"
   },
   // Add more general knowledge questions as needed...
   {
     "question": "Which planet is known as the 'Morning Star'?",
     "options": ["Mars", "Venus", "Jupiter", "Saturn"],
-    "correct": "Venus"
+    "correctAnswer": "Venus"
   },
   {
     "question": "What is the currency of Japan?",
     "options": ["Yuan", "Euro", "Yen", "Dollar"],
-    "correct": "Yen"
+    "correctAnswer": "Yen"
   },
   {
     "question": "Which river is the longest in the world?",
     "options": ["Nile", "Amazon", "Yangtze", "Mississippi"],
-    "correct": "Amazon"
+    "correctAnswer": "Amazon"
   },
   {
     "question": "In which year did the Titanic sink on its maiden voyage?",
     "options": ["1912", "1907", "1923", "1918"],
-    "correct": "1912"
+    "correctAnswer": "1912"
   },
   {
     "question": "Who wrote the play 'Romeo and Juliet'?",
     "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    "correct": "William Shakespeare"
+    "correctAnswer": "William Shakespeare"
   },
   {
     "question": "What is the capital city of Australia?",
     "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
-    "correct": "Canberra"
+    "correctAnswer": "Canberra"
   },
   {
     "question": "Which mountain is the highest in the world?",
     "options": ["Mount Kilimanjaro", "Mount McKinley", "Mount Everest", "Mount Fuji"],
-    "correct": "Mount Everest"
+    "correctAnswer": "Mount Everest"
   },
   {
     "question": "What is the largest desert in the world?",
     "options": ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctica"],
-    "correct": "Antarctica"
+    "correctAnswer": "Antarctica"
   },
   {
     "question": "Who is the author of 'To Kill a Mockingbird'?",
     "options": ["J.K. Rowling", "Harper Lee", "George Orwell", "Ernest Hemingway"],
-    "correct": "Harper Lee"
+    "correctAnswer": "Harper Lee"
   },
   {
     "question": "In which year did the United States declare its independence?",
     "options": ["1776", "1789", "1801", "1812"],
-    "correct": "1776"
+    "correctAnswer": "1776"
   },
   {
     "question": "What is the largest continent on Earth?",
     "options": ["Africa", "Asia", "North America", "South America"],
-    "correct": "Asia"
+    "correctAnswer": "Asia"
   },
   // Add more general knowledge questions as needed...
   {
     "question": "What is the capital city of Canada?",
     "options": ["Toronto", "Ottawa", "Vancouver", "Montreal"],
-    "correct": "Ottawa"
+    "correctAnswer": "Ottawa"
   },
   {
     "question": "Which country is known as the 'Land of the Rising Sun'?",

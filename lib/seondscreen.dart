@@ -5,7 +5,7 @@ class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});
 
   @override
-  _SecondScreenState createState() => _SecondScreenState();
+  State<SecondScreen> createState() => _SecondScreenState();
 }
 
 class _SecondScreenState extends State<SecondScreen> {

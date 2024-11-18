@@ -1,22 +1,24 @@
+// ignore_for_file: body_might_complete_normally_nullable, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/data/bible_question_data.dart';
+import 'package:quiz/data/football_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../section.dart';
+import '../../section.dart';
 
-class BibleScreen extends StatefulWidget {
-  const BibleScreen({super.key});
+class FootballScreen extends StatefulWidget {
+  const FootballScreen({super.key});
 
   @override
-  State<BibleScreen> createState() {return _BibleScreenState();}
+  State<FootballScreen> createState() {return _FootballScreenState();}
 }
 
-class _BibleScreenState extends State<BibleScreen> {
+class _FootballScreenState extends State<FootballScreen> {
   int _currentIndex = 0;
   int _score = 0;
   int totalQuestions = 0;
@@ -42,7 +44,7 @@ class _BibleScreenState extends State<BibleScreen> {
     setState(() {
       totalQuestions++;
 
-      if (selectedAnswer == bibleQuestions[_currentIndex]['correctAnswer']) {
+      if (selectedAnswer == footballQuestions[_currentIndex]['correctAnswer']) {
         _score++;
         _isCorrectAnswer[_currentIndex] = true;
       } else {
@@ -50,12 +52,12 @@ class _BibleScreenState extends State<BibleScreen> {
       }
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
       setState(() {
         if (totalQuestions >= maxAnswered) {
           showQuizDialog();
         } else {
-          if (_currentIndex < bibleQuestions.length - 1) {
+          if (_currentIndex < footballQuestions.length - 1) {
             _currentIndex++;
           } else {
             showQuizDialog();
@@ -87,7 +89,7 @@ class _BibleScreenState extends State<BibleScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: bibleQuestions[_currentIndex]['question']
+                questionText: footballQuestions[_currentIndex]['question']
               ),
             ),
 
@@ -95,7 +97,7 @@ class _BibleScreenState extends State<BibleScreen> {
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: (bibleQuestions[_currentIndex]['options'] as List<String>).map((option) {
+                children: (footballQuestions[_currentIndex]['options'] as List<String>).map((option) {
                   return AnimatedSwitcher(
                     duration: const Duration(milliseconds: 1000),
                     transitionBuilder: (Widget child, Animation<double> animation) {
@@ -105,7 +107,7 @@ class _BibleScreenState extends State<BibleScreen> {
                       key: ValueKey<int>(_currentIndex),
                       onPressed: () {_answerQuestion(option);},
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == bibleQuestions[_currentIndex]['correctAnswer']
+                      borderside: _isCorrectAnswer[_currentIndex] && option == footballQuestions[_currentIndex]['correctAnswer']
                       ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
                     ),
                   );
@@ -117,7 +119,6 @@ class _BibleScreenState extends State<BibleScreen> {
       ),
     );
   }
-
 
   Future<Object?> showQuizDialog() {
     return showGeneralDialog(

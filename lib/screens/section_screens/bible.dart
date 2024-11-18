@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/data/general_question_data.dart';
+import 'package:quiz/data/bible_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../section.dart';
+import '../../section.dart';
 
-
-class GeneralScreen extends StatefulWidget {
-  const GeneralScreen({super.key});
+class BibleScreen extends StatefulWidget {
+  const BibleScreen({super.key});
 
   @override
-  State<GeneralScreen> createState() => _GeneralScreenState();
+  State<BibleScreen> createState() {return _BibleScreenState();}
 }
 
-class _GeneralScreenState extends State<GeneralScreen> {
+class _BibleScreenState extends State<BibleScreen> {
   int _currentIndex = 0;
   int _score = 0;
   int totalQuestions = 0;
@@ -43,7 +42,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
     setState(() {
       totalQuestions++;
 
-      if (selectedAnswer == generalQuestions[_currentIndex]['correctAnswer']) {
+      if (selectedAnswer == bibleQuestions[_currentIndex]['correctAnswer']) {
         _score++;
         _isCorrectAnswer[_currentIndex] = true;
       } else {
@@ -51,12 +50,12 @@ class _GeneralScreenState extends State<GeneralScreen> {
       }
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
       setState(() {
         if (totalQuestions >= maxAnswered) {
           showQuizDialog();
         } else {
-          if (_currentIndex < generalQuestions.length - 1) {
+          if (_currentIndex < bibleQuestions.length - 1) {
             _currentIndex++;
           } else {
             showQuizDialog();
@@ -65,12 +64,12 @@ class _GeneralScreenState extends State<GeneralScreen> {
       });
     });
   }
-  
- 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(sectionTitle: 'General'),
+      appBar: const AppBarWidget(sectionTitle: 'Programming'),
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -88,7 +87,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: generalQuestions[_currentIndex]['question']
+                questionText: bibleQuestions[_currentIndex]['question']
               ),
             ),
 
@@ -96,7 +95,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: (generalQuestions[_currentIndex]['options'] as List<String>).map((option) {
+                children: (bibleQuestions[_currentIndex]['options'] as List<String>).map((option) {
                   return AnimatedSwitcher(
                     duration: const Duration(milliseconds: 1000),
                     transitionBuilder: (Widget child, Animation<double> animation) {
@@ -106,7 +105,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
                       key: ValueKey<int>(_currentIndex),
                       onPressed: () {_answerQuestion(option);},
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == generalQuestions[_currentIndex]['correctAnswer']
+                      borderside: _isCorrectAnswer[_currentIndex] && option == bibleQuestions[_currentIndex]['correctAnswer']
                       ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
                     ),
                   );

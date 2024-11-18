@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -30,20 +31,21 @@ Future contactButton(BuildContext context) {
           children: [
             ListTile(
               leading: const Icon(Icons.web),
-              title: const Text('Whatsapp'),
+              title: Text('Whatsapp', style: TextStyle(fontSize: 15.sp, fontFamily: 'Poppins')),
               onTap: () {
                 _launchWhatsapp();
               },
             ),
             ListTile(
               leading: const Icon(Icons.email),
-              title: const Text('Gmail'),
+              title: Text('Gmail', style: TextStyle(fontSize: 15.sp, fontFamily: 'Poppins')),
               onTap: () async {
                 String? encodeQueryParameters(Map<String, String> params) {
                   params.entries
                       .map((MapEntry<String, String> e) =>
                           '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                       .join('&');
+                  return null;
                   // return null;
                 }
 

@@ -6,8 +6,8 @@ import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../section.dart';
-import '../data/programming_question_data.dart';
+import '../../section.dart';
+import '../../data/programming_question_data.dart';
 
 
 class ProgrammingScreen extends StatefulWidget {
@@ -51,7 +51,7 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
       }
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
       setState(() {
         if (totalQuestions >= maxAnswered) {
           showQuizDialog();

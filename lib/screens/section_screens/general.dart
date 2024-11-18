@@ -1,24 +1,23 @@
-// ignore_for_file: body_might_complete_normally_nullable, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:quiz/dialogs/showquizdialog.dart';
-import 'package:quiz/data/football_question_data.dart';
+import 'package:quiz/data/general_question_data.dart';
 import 'package:quiz/utils/ui_helpers.dart';
 import 'package:quiz/widgets/app_bar.dart';
 import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../section.dart';
+import '../../section.dart';
 
-class FootballScreen extends StatefulWidget {
-  const FootballScreen({super.key});
+
+class GeneralScreen extends StatefulWidget {
+  const GeneralScreen({super.key});
 
   @override
-  State<FootballScreen> createState() {return _FootballScreenState();}
+  State<GeneralScreen> createState() => _GeneralScreenState();
 }
 
-class _FootballScreenState extends State<FootballScreen> {
+class _GeneralScreenState extends State<GeneralScreen> {
   int _currentIndex = 0;
   int _score = 0;
   int totalQuestions = 0;
@@ -44,7 +43,7 @@ class _FootballScreenState extends State<FootballScreen> {
     setState(() {
       totalQuestions++;
 
-      if (selectedAnswer == footballQuestions[_currentIndex]['correctAnswer']) {
+      if (selectedAnswer == generalQuestions[_currentIndex]['correctAnswer']) {
         _score++;
         _isCorrectAnswer[_currentIndex] = true;
       } else {
@@ -52,12 +51,12 @@ class _FootballScreenState extends State<FootballScreen> {
       }
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1, milliseconds: 500), () {
       setState(() {
         if (totalQuestions >= maxAnswered) {
           showQuizDialog();
         } else {
-          if (_currentIndex < footballQuestions.length - 1) {
+          if (_currentIndex < generalQuestions.length - 1) {
             _currentIndex++;
           } else {
             showQuizDialog();
@@ -66,12 +65,12 @@ class _FootballScreenState extends State<FootballScreen> {
       });
     });
   }
-
-
+  
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(sectionTitle: 'Programming'),
+      appBar: const AppBarWidget(sectionTitle: 'General'),
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -89,7 +88,7 @@ class _FootballScreenState extends State<FootballScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: footballQuestions[_currentIndex]['question']
+                questionText: generalQuestions[_currentIndex]['question']
               ),
             ),
 
@@ -97,7 +96,7 @@ class _FootballScreenState extends State<FootballScreen> {
               height: screenHeight(context) * 0.42,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: (footballQuestions[_currentIndex]['options'] as List<String>).map((option) {
+                children: (generalQuestions[_currentIndex]['options'] as List<String>).map((option) {
                   return AnimatedSwitcher(
                     duration: const Duration(milliseconds: 1000),
                     transitionBuilder: (Widget child, Animation<double> animation) {
@@ -107,7 +106,7 @@ class _FootballScreenState extends State<FootballScreen> {
                       key: ValueKey<int>(_currentIndex),
                       onPressed: () {_answerQuestion(option);},
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == footballQuestions[_currentIndex]['correctAnswer']
+                      borderside: _isCorrectAnswer[_currentIndex] && option == generalQuestions[_currentIndex]['correctAnswer']
                       ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
                     ),
                   );
@@ -119,6 +118,7 @@ class _FootballScreenState extends State<FootballScreen> {
       ),
     );
   }
+
 
   Future<Object?> showQuizDialog() {
     return showGeneralDialog(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:quiz/section_screens/bible.dart';
-import 'package:quiz/section_screens/general.dart';
-import 'package:quiz/section_screens/programming.dart';
-import 'section_screens/football.dart';
+import 'package:quiz/screens/section_screens/bible.dart';
+import 'package:quiz/screens/section_screens/general.dart';
+import 'package:quiz/screens/section_screens/programming.dart';
+import 'screens/section_screens/football.dart';
 
 class SectionScreen extends StatefulWidget {
   const SectionScreen({super.key});
