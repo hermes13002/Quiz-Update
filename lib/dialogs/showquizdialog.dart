@@ -27,7 +27,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
     super.initState();
     controller = ConfettiController();
 
-    if (widget.score >= 1) {
+    if (widget.score >= 11) {
       double randomInRange(double min, double max) {
         return min + Random().nextDouble() * (max - min);
       }

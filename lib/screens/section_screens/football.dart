@@ -9,7 +9,7 @@ import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../../section.dart';
+import '../category_screen.dart';
 
 class FootballScreen extends StatefulWidget {
   const FootballScreen({super.key});

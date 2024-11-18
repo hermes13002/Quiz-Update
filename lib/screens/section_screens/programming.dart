@@ -6,9 +6,8 @@ import 'package:quiz/widgets/option_widget.dart';
 import 'package:quiz/widgets/progress_indicator_widget.dart';
 import 'package:quiz/widgets/question_widget.dart';
 import 'dart:async';
-import '../../section.dart';
+import '../category_screen.dart';
 import '../../data/programming_question_data.dart';
-
 
 class ProgrammingScreen extends StatefulWidget {
   const ProgrammingScreen({super.key});
@@ -22,32 +21,32 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
   int _score = 0;
   int totalQuestions = 0;
   int maxAnswered = 15;
-  bool isButtonPressed = false;
-  List<bool> _isCorrectAnswer = [];
+  bool hasAnswered = false; // New variable to track answer selection
+  String? _lastSelected;
 
   @override
   void initState() {
     super.initState();
-    _isCorrectAnswer = List<bool>.filled(15, false);
+    hasAnswered = false;
   }
 
   void resetButton() {
     setState(() {
       _currentIndex = 0;
       _score = 0;
-      _isCorrectAnswer = List<bool>.filled(15, false);
+      hasAnswered = false;
+      _lastSelected = null;
     });
   }
 
   void _answerQuestion(String selectedAnswer) {
     setState(() {
+      _lastSelected = selectedAnswer;
+      hasAnswered = true; // Mark that an answer has been selected
       totalQuestions++;
 
       if (selectedAnswer == progQuestions[_currentIndex]['correctAnswer']) {
         _score++;
-        _isCorrectAnswer[_currentIndex] = true;
-      } else {
-        _isCorrectAnswer[_currentIndex] = false;
       }
     });
 
@@ -58,6 +57,7 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
         } else {
           if (_currentIndex < progQuestions.length - 1) {
             _currentIndex++;
+            hasAnswered = false; // Reset for the next question
           } else {
             showQuizDialog();
           }
@@ -65,7 +65,6 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
       });
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +87,7 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
               },
               child: QuestionWidget(
                 key: ValueKey<int>(_currentIndex),
-                questionText: progQuestions[_currentIndex]['question']
+                questionText: progQuestions[_currentIndex]['question'],
               ),
             ),
 
@@ -103,22 +102,31 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
                       return FadeTransition(opacity: animation, child: child);
                     },
                     child: OptionWidget(
-                      key: ValueKey<int>(_currentIndex),
-                      onPressed: () {_answerQuestion(option);},
+                      key: ValueKey<String>(option),
+                      onPressed: hasAnswered
+                          // ? null // Disable button after an answer is selected
+                          ? (){}
+                          : () {
+                              _answerQuestion(option);
+                            },
                       optionText: option,
-                      borderside: _isCorrectAnswer[_currentIndex] && option == progQuestions[_currentIndex]['correctAnswer']
-                      ? const BorderSide(width: 5, color: Colors.green) : const BorderSide(),
+                      borderside: hasAnswered
+                          ? (option == progQuestions[_currentIndex]['correctAnswer'])
+                              ? const BorderSide(width: 5, color: Colors.green)
+                              : (option == _lastSelected && option != progQuestions[_currentIndex]['correctAnswer'])
+                                  ? const BorderSide(width: 5, color: Colors.red)
+                                  : const BorderSide()
+                          : const BorderSide(),
                     ),
                   );
                 }).toList(),
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
-
 
   Future<Object?> showQuizDialog() {
     return showGeneralDialog(
@@ -148,8 +156,7 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SectionScreen()));
           },
         );
-      }
+      },
     );
   }
-
 }

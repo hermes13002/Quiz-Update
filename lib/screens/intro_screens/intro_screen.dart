@@ -3,7 +3,7 @@ import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 // import 'package:lottie/lottie.dart';
-import 'package:quiz/section.dart';
+import 'package:quiz/screens/category_screen.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
