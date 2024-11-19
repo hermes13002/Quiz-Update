@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_confetti/flutter_confetti.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -90,7 +91,8 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Image.asset('assets/champ.png', height: screenHeight(context) * 0.3, width: screenWidth(context) * 0.6,),
+                  Image.asset('assets/champ.png', height: screenHeight(context) * 0.3, width: screenWidth(context) * 0.6,)
+                  .animate().scale(duration: 1000.ms, curve: Curves.elasticInOut),
                   
                   Container(
                     height: screenHeight(context) * 0.25,
@@ -111,7 +113,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                                 
                                 const Text('Score Percentage',style: TextStyle(color: Colors.white, fontFamily: 'Rowdies'),),
                               ],
-                            ),
+                            ).animate().then(duration: 100.ms).scale(duration: 1000.ms, curve: Curves.elasticInOut),
             
                             Column(
                               children: [
@@ -121,7 +123,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                                 
                                 const Text('Total Questions', style: TextStyle(color: Colors.white, fontFamily: 'Rowdies'),),
                               ],
-                            ),
+                            ).animate().then(duration: 200.ms).scale(duration: 1000.ms, curve: Curves.elasticInOut),
                           ],
                         ),
             
@@ -136,7 +138,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                                 
                                 const Text('Correct', style: TextStyle(color: Colors.white, fontFamily: 'Rowdies'),),
                               ],
-                            ),
+                            ).animate().then(duration: 300.ms).scale(duration: 1000.ms, curve: Curves.elasticInOut),
             
                             Column(
                               children: [
@@ -146,7 +148,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                                 
                                 const Text('Wrong',style: TextStyle(color: Colors.white, fontFamily: 'Rowdies'),),
                               ],
-                            ),
+                            ).animate().then(duration: 400.ms).scale(duration: 1000.ms, curve: Curves.elasticInOut),
                           ],
                         ),
                       ],
@@ -170,7 +172,7 @@ class _ShowQuizdialogState extends State<ShowQuizdialog> {
                       ),
                       child: const Text("Play Again", style: TextStyle(color: Colors.white),),
                     ),
-                  )
+                  ).animate().then(duration: 1000.ms).scale(duration: 1000.ms, curve: Curves.elasticInOut),
                 ],
               ),
             ),

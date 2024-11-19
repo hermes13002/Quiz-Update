@@ -76,7 +76,8 @@ flutter:
     - assets/champ.png
     - assets/quiz.png
     - assets/exc.png
-    - assets/lottie/onboardanim1.json
+    - assets/lottie/anim1.json
+    - assets/lottie/anim2.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

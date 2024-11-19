@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:quiz/screens/loading_screen.dart';
 import 'package:quiz/screens/section_screens/bible.dart';
 import 'package:quiz/screens/section_screens/general.dart';
@@ -29,10 +30,12 @@ class _SectionScreenState extends State<SectionScreen> {
           child: Column(
             children: [
               const Gap(55),
-              Text('Category', style: TextStyle(fontSize: 27.sp, fontFamily: 'Poppins-Bold', color: Colors.white,),),
+              Text('Category', style: TextStyle(fontSize: 27.sp, fontFamily: 'Poppins-Bold', color: Colors.white,),)
+              .animate(onPlay: (controller) => controller.repeat())
+              .shimmer(duration: 1200.ms, color: Colors.lightBlueAccent),
           
               const Gap(25),
-              Text('Choose Your Preferred Quiz', style: TextStyle(fontSize: 20.sp, fontFamily: 'Poppins',fontWeight: FontWeight.w100, color: Colors.white),),
+              Text('Choose Your Preferred Quiz', style: TextStyle(fontSize: 20.sp, fontFamily: 'Poppins',fontWeight: FontWeight.w100, color: Colors.white60),),
               
               const Gap(5),
               GridView(
@@ -44,18 +47,30 @@ class _SectionScreenState extends State<SectionScreen> {
                   childAspectRatio: 1.5,
                 ),
                 children: [
-                  sectionTypeContainer(const GeneralScreen(), Icons.public, 'General Knowledge'),
+                  sectionTypeContainer(
+                    const GeneralScreen(), Icons.public, 'General Knowledge'
+                  ).animate().scale(duration: 500.ms, curve: Curves.elasticInOut),
           
-                  sectionTypeContainer(const ProgrammingScreen(), Icons.laptop_chromebook, 'Programming'),
+                  sectionTypeContainer(
+                    const ProgrammingScreen(), Icons.laptop_chromebook, 'Programming'
+                  ).animate().then(delay: 120.ms).scale(duration: 500.ms, curve: Curves.elasticInOut),
           
-                  sectionTypeContainer(const BibleScreen(), Icons.menu_book, 'Bible'),
+                  sectionTypeContainer(
+                    const BibleScreen(), Icons.menu_book, 'Bible'
+                  ).animate().then(delay: 140.ms).scale(duration: 500.ms, curve: Curves.elasticInOut),
           
-                  sectionTypeContainer(const FootballScreen(), Icons.sports_soccer, 'Football'),
+                  sectionTypeContainer(
+                    const FootballScreen(), Icons.sports_soccer, 'Football'
+                  ).animate().then(delay: 160.ms).scale(duration: 500.ms, curve: Curves.elasticInOut),
 
-                  sectionTypeContainer(const HistoryScreen(), Icons.history_edu, 'History'),
+                  sectionTypeContainer(
+                    const HistoryScreen(), Icons.history_edu, 'History'
+                  ).animate().then(delay: 180.ms).scale(duration: 500.ms, curve: Curves.elasticInOut),
           
                   for (int i = 0; i < 7; i++)
-                  sectionTypeContainer(const SizedBox(), Icons.quiz_outlined, 'Coming soon'),
+                  sectionTypeContainer(
+                    const SizedBox(), Icons.quiz_outlined, 'Coming soon'
+                  ).animate().then(delay: 200.ms).scale(duration: 500.ms, curve: Curves.elasticInOut),
                 ],
               ),
               const Gap(10),
