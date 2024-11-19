@@ -73,56 +73,58 @@ class _ProgrammingScreenState extends State<ProgrammingScreen> {
       backgroundColor: const Color.fromARGB(255, 49, 49, 49),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ProgressIndicatorWidget(currentIndex: _currentIndex),
-
-            AnimatedSwitcher(
-              switchOutCurve: Curves.easeOut,
-              switchInCurve: Curves.easeIn,
-              duration: const Duration(milliseconds: 1000),
-              transitionBuilder: (Widget child, Animation<double> animation) {
-                return FadeTransition(opacity: animation, child: child);
-              },
-              child: QuestionWidget(
-                key: ValueKey<int>(_currentIndex),
-                questionText: progQuestions[_currentIndex]['question'],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ProgressIndicatorWidget(currentIndex: _currentIndex),
+          
+              AnimatedSwitcher(
+                switchOutCurve: Curves.easeOut,
+                switchInCurve: Curves.easeIn,
+                duration: const Duration(milliseconds: 1000),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+                child: QuestionWidget(
+                  key: ValueKey<int>(_currentIndex),
+                  questionText: progQuestions[_currentIndex]['question'],
+                ),
               ),
-            ),
-
-            SizedBox(
-              height: screenHeight(context) * 0.42,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: (progQuestions[_currentIndex]['options'] as List<String>).map((option) {
-                  return AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 1000),
-                    transitionBuilder: (Widget child, Animation<double> animation) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    child: OptionWidget(
-                      key: ValueKey<String>(option),
-                      onPressed: hasAnswered
-                          // ? null // Disable button after an answer is selected
-                          ? (){}
-                          : () {
-                              _answerQuestion(option);
-                            },
-                      optionText: option,
-                      borderside: hasAnswered
-                          ? (option == progQuestions[_currentIndex]['correctAnswer'])
-                              ? const BorderSide(width: 5, color: Colors.green)
-                              : (option == _lastSelected && option != progQuestions[_currentIndex]['correctAnswer'])
-                                  ? const BorderSide(width: 5, color: Colors.red)
-                                  : const BorderSide()
-                          : const BorderSide(),
-                    ),
-                  );
-                }).toList(),
+          
+              SizedBox(
+                height: screenHeight(context) * 0.42,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: (progQuestions[_currentIndex]['options'] as List<String>).map((option) {
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 1000),
+                      transitionBuilder: (Widget child, Animation<double> animation) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      child: OptionWidget(
+                        key: ValueKey<String>(option),
+                        onPressed: hasAnswered
+                            // ? null // Disable button after an answer is selected
+                            ? (){}
+                            : () {
+                                _answerQuestion(option);
+                              },
+                        optionText: option,
+                        borderside: hasAnswered
+                            ? (option == progQuestions[_currentIndex]['correctAnswer'])
+                                ? const BorderSide(width: 5, color: Colors.green)
+                                : (option == _lastSelected && option != progQuestions[_currentIndex]['correctAnswer'])
+                                    ? const BorderSide(width: 5, color: Colors.red)
+                                    : const BorderSide()
+                            : const BorderSide(),
+                      ),
+                    );
+                  }).toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
